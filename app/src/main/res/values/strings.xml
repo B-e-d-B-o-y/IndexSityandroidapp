@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Index Sity</string>
+    <string name="buttonsearch">Поиск города</string>
+    <string name="namesity">Индекс</string>
+    <string name="nameapp">Почтовые индексы</string>
+    <string name="noinput">Введите индекс города</string>
+</resources>
