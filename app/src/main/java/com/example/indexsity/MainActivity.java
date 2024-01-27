@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -109,12 +110,23 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 JSONObject jsonObject = new JSONObject(result);
-                cityname.setText("Долгота " + jsonObject.getJSONObject("places").getDouble("longitude"));
+                JSONArray places = jsonObject.getJSONArray("places");
+                for (int i = 0; i < places.length(); i++){
+                    JSONObject odj = places.getJSONObject(i);
+
+                    String placename = odj.getString("place name");
+                    cityname.setText("Название города: " + placename);
+
+                    String longi = odj.getString("longitude");
+                    longitude.setText("Долгота: " + longi);
+
+                    String lati = odj.getString("latitude");
+                    latitude.setText("Широта: " + lati);
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
-            cityname.setText(result);
         }
     }
 }
