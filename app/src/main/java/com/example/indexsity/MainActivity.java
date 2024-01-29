@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText editindex;
     private Button buttonsearch;
-    private TextView cityname, longitude, latitude;
+    private TextView cityname, longitude, latitude, error;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         cityname = findViewById(R.id.cityname);
         longitude = findViewById(R.id.longitude);
         latitude = findViewById(R.id.latitude);
+        error = findViewById(R.id.error);
 
         buttonsearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,25 +109,35 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            try {
-                JSONObject jsonObject = new JSONObject(result);
-                JSONArray places = jsonObject.getJSONArray("places");
-                for (int i = 0; i < places.length(); i++){
-                    JSONObject odj = places.getJSONObject(i);
+            if(result != null) {
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    JSONArray places = jsonObject.getJSONArray("places");
+                    for (int i = 0; i < places.length(); i++) {
+                        JSONObject odj = places.getJSONObject(i);
 
-                    String placename = odj.getString("place name");
-                    cityname.setText("Название города: " + placename);
+                        String placename = odj.getString("place name");
+                        cityname.setText("Название города: " + placename);
 
-                    String longi = odj.getString("longitude");
-                    longitude.setText("Долгота: " + longi);
+                        String longi = odj.getString("longitude");
+                        longitude.setText("Долгота: " + longi);
 
-                    String lati = odj.getString("latitude");
-                    latitude.setText("Широта: " + lati);
+                        String lati = odj.getString("latitude");
+                        latitude.setText("Широта: " + lati);
+
+                        error.setText(null);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
 
+            else {
+                cityname.setText(null);
+                longitude.setText(null);
+                latitude.setText(null);
+                error.setText("Неправильно введен индекс");
+            }
         }
     }
 }

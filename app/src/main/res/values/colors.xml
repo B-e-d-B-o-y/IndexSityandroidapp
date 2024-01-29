@@ -6,4 +6,5 @@
     <color name="buttonsearch">#86BBFF</color>
     <color name="background">#E1E0E2</color>
     <color name="hint">#504F55</color>
+    <color name="red">#ff0000</color>
 </resources>
