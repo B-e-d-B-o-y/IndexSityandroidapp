@@ -29,6 +29,7 @@
         android:textColorHint="@color/hint"
         android:backgroundTint="@color/buttonsearch"
         android:inputType="number"
+        android:maxLength="6"
         android:minHeight="48dp"
         android:hint="@string/namesity"
         app:layout_constraintEnd_toEndOf="parent"

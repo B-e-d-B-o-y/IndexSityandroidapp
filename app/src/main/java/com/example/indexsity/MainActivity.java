@@ -48,20 +48,24 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.noinput, Toast.LENGTH_LONG).show();
                 else {
                     String index = editindex.getText().toString();
-                    String url = "https://api.zippopotam.us/ru/" + index;
+                    if (index.length()==6) {
+                        String url = "https://api.zippopotam.us/ru/" + index;
 
-                    new GetData().execute(url);
+                        new GetData().execute(url);
+                    }
+
+                    else {
+                        cityname.setText(null);
+                        longitude.setText(null);
+                        latitude.setText(null);
+                        error.setText("Неправильно введен индекс");
+                    }
                 }
             }
         });
     }
 
     private class GetData extends AsyncTask<String, String, String> {
-
-        protected void onProExecute() {
-            super.onPreExecute();
-            cityname.setText("Название города...");
-        }
 
         @Override
         protected String doInBackground(String... strings) {
