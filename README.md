@@ -5,7 +5,7 @@
 ## Скачать приложение
 Вы можете скачать установочный APK-файл по ссылке ниже:
 
-[![](https://img.shields.io/badge/Скачать-APK-blue?style=for-the-badge&logo=android)](https://github.com/B-e-d-B-o-y/IndexSityandroidapp/blob/master/%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0.apk)
+[![](https://github.com/B-e-d-B-o-y/IndexSityandroidapp/raw/refs/heads/master/%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0.apk)
 
 ## Основные функции
 * **Поиск по индексу:** Ввод 6-значного почтового индекса РФ.
